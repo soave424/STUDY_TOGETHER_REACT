@@ -5,3 +5,4 @@
 #개인프로젝트 주제 : 딸 관련 애니 노래 모음 사이트/게임 또는 수학 관련 도움이 될 만한 것 
 
 2주차에 배운 것 : 다음 영상이 무슨 뜻인지 대략 알게 됨. (useState, render, props) <br> https://youtube.com/shorts/u86KSUc9Ngg?feature=share
+<br>역시 최고의 교재 : https://ko.reactjs.org/docs/create-a-new-react-app.html
