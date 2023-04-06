@@ -17,7 +17,12 @@ function App() {
   console.log(sun);
   return (
     <ChakraProvider theme={theme}>
-      <Box w={'100vw'} h={'100vh'} bgColor={sun ? 'white' : 'black'}>
+      <Box
+        w={'100vw'}
+        h={'100vh'}
+        bgColor={sun ? 'white' : 'black'}
+        transition={'ease-in-out'}
+      >
         <Flex justifyContent={'end'}>
           <IconButton
             margin={3}
