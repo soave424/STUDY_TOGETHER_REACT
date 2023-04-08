@@ -1,34 +1,25 @@
-import React, { useState } from 'react';
-import {
-  Box,
-  ChakraProvider,
-  Flex,
-  theme,
-  IconButton,
-  Heading,
-} from '@chakra-ui/react';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { ChakraProvider, Flex, theme } from '@chakra-ui/react';
+import Prop from './components/Prop';
+
+import { ColorModeSwitcher } from './ColorModeSwitcher';
 
 function App() {
-  const [sun, setSun] = useState(true);
-  const colorSwitch = () => {
-    setSun(!sun);
-  };
-  console.log(sun);
+  const student = [
+    { id: 1, name: 'Kang' },
+    { id: 3, name: 'Ko' },
+    { id: 4, name: 'Koo' },
+    { id: 5, name: 'Kim' },
+  ];
   return (
     <ChakraProvider theme={theme}>
-      <Box w={'100vw'} h={'100vh'} bgColor={sun ? 'white' : 'black'}>
-        <Flex justifyContent={'end'}>
-          <IconButton
-            margin={3}
-            icon={sun ? <SunIcon /> : <MoonIcon />}
-            onClick={colorSwitch}
-          />
-        </Flex>
-        <Heading color={sun ? 'black' : 'white'} textAlign={'center'}>
-          {sun ? 'SUN' : 'NIGHT'}
-        </Heading>
-      </Box>
+      <Flex justifyContent={'end'} m={'3'}>
+        <ColorModeSwitcher />
+      </Flex>
+      <Flex m={'3'}>
+        {student.map(i => (
+          <Prop id={i.id} name={i.name} />
+        ))}
+      </Flex>
     </ChakraProvider>
   );
 }
