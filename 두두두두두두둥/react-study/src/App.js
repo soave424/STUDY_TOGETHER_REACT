@@ -9,7 +9,9 @@ function App() {
     { id: 3, name: 'Ko' },
     { id: 4, name: 'Koo' },
     { id: 5, name: 'Kim' },
+    { id: 6, name: 'Yi' },
   ];
+
   return (
     <ChakraProvider theme={theme}>
       <Flex justifyContent={'end'} m={'3'}>

@@ -7,6 +7,7 @@ function Prop({ id, name }) {
     setPoint(point + 1);
   };
 
+  console.log(`${name} is rendered`);
   return (
     <Box
       bgColor={'#FCD37E'}
