@@ -15,24 +15,19 @@ function About() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Button onClick={onOpen} color={'white'}>
+      <Button onClick={onOpen} color={'black'} mr={'5'}>
         About
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent colorScheme={'black'}>
           <ModalHeader>Movie blah</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <Text>How to use</Text>
           </ModalBody>
           <ModalFooter>
-            <Button
-              colorScheme="whiteAlpha"
-              mr={3}
-              onClick={onClose}
-              color={'white'}
-            >
+            <Button colorScheme="gray" mr={3} onClick={onClose}>
               I understand
             </Button>
           </ModalFooter>
