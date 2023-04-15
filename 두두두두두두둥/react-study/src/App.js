@@ -17,7 +17,7 @@ function App() {
   const videoSrc = '/assets/v_for_vendetta.mp4';
   return (
     <ChakraProvider theme={theme}>
-      <Box position={'relative'} overflow={'hidden'} minH={'100vh'}>
+      <Box position={'relative'} overflow={'hidden'} H={'100vh'}>
         <video
           style={{
             position: 'absolute',
@@ -35,7 +35,7 @@ function App() {
         >
           <source src={videoSrc} type="video/mp4" />
         </video>
-        <Box zIndex={1} position={'relative'}>
+        <Box zIndex={1} position={'relative'} minH={'100vh'}>
           <Flex mt={3}>
             <Text color={'white'} fontSize={'2xl'} fontWeight={'bold'}>
               MovieList
@@ -60,7 +60,9 @@ function App() {
           </Center>
           <Slideup />
         </Box>
-        <Movie />
+        <Box>
+          <Movie />
+        </Box>
       </Box>
     </ChakraProvider>
   );
