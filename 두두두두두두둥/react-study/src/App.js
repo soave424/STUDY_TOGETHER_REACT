@@ -1,25 +1,61 @@
-import { ChakraProvider, Flex, theme } from '@chakra-ui/react';
-import Prop from './components/Prop';
+import {
+  Box,
+  Center,
+  ChakraProvider,
+  Flex,
+  Heading,
+  Highlight,
+  Spacer,
+  Text,
+  theme,
+} from '@chakra-ui/react';
 
-import { ColorModeSwitcher } from './ColorModeSwitcher';
+import About from './components/About';
 
 function App() {
-  const student = [
-    { id: 1, name: 'Kang' },
-    { id: 3, name: 'Ko' },
-    { id: 4, name: 'Koo' },
-    { id: 5, name: 'Kim' },
-  ];
+  const videoId = 'CEDikKu-ojU';
   return (
     <ChakraProvider theme={theme}>
-      <Flex justifyContent={'end'} m={'3'}>
-        <ColorModeSwitcher />
-      </Flex>
-      <Flex m={'3'}>
-        {student.map(i => (
-          <Prop id={i.id} name={i.name} />
-        ))}
-      </Flex>
+      <Box position={'relative'} overflow={'hidden'} minH={'100vh'}>
+        <iframe
+          title="background video"
+          style={{
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: -1,
+          }}
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&playlist=${videoId}&modestbranding=1`}
+          frameBorder={'0'}
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+        <Box zIndex={1} position={'relative'}>
+          <Flex m={20}>
+            <Heading color={'white'}>Introducing Movie</Heading>
+            <Spacer />
+            <About />
+          </Flex>
+          <Center>
+            <Text fontSize={'8xl'} fontWeight={'extrabold'}>
+              A Premium Movie Introducing
+            </Text>
+          </Center>
+          <Center>
+            <Text fontSize={'8xl'} fontWeight={'extrabold'}>
+              <Highlight
+                query={'YTS'}
+                styles={{ px: '2', py: '1', rounded: '10', bg: 'red.100' }}
+              >
+                from YTS Movie
+              </Highlight>
+            </Text>
+          </Center>
+        </Box>
+      </Box>
     </ChakraProvider>
   );
 }
