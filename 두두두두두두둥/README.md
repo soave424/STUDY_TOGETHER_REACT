@@ -17,8 +17,3 @@
 # 3주차
 
 - 강의 끝까지 듣고 일단 영화 소개 페이지 만들기
-- 영화 api 주소 `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year`
-- Movie.js 완성할것
-- About 완성하기
-- 슬라이드업 효과 완성하기
-  https://www.bowenmedia.com/
