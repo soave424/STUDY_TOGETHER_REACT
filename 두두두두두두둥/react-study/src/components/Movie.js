@@ -8,8 +8,9 @@ function Movie() {
 
   useEffect(() => {
     const handleScroll = () => {
+      console.log(window.scrollY);
       let currentScrollY = window.scrollY;
-      if (currentScrollY > 200) {
+      if (currentScrollY > 300) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -54,7 +55,8 @@ function Movie() {
       <Box
         bg={isScrolled ? 'white' : 'transparent'}
         transition={'background-color 1s ease-in-out'}
-        h={'300vh'}
+        h={'97vh'}
+        py={'200px'}
       >
         <Spacer />
         <Slider {...settings}>

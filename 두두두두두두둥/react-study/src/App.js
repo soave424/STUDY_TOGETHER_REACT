@@ -12,6 +12,8 @@ import {
 import Movie from './components/Movie';
 import About from './components/About';
 import Slideup from './components/Slideup';
+import Footer from './components/Footer';
+import TextHeading from './components/Heading';
 
 function App() {
   const videoSrc = '/assets/v_for_vendetta.mp4';
@@ -60,9 +62,9 @@ function App() {
           </Center>
           <Slideup />
         </Box>
-        <Box>
-          <Movie />
-        </Box>
+        <Movie />
+        <TextHeading />
+        <Footer />
       </Box>
     </ChakraProvider>
   );
