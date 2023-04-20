@@ -1,0 +1,123 @@
+version: '3.9'
+
+networks: 
+  mung_net:
+    driver: bridge
+
+services:
+  front_nginx:
+    container_name: front_nginx_cname
+    #image: nginx:1.23.2       
+    image: mungkhs/nginxwaf:1.5
+    #build: ./docker/front/     
+    restart: always
+    privileged: true
+    ports:
+      - "80:80"
+      - "81:81"
+      - "82:82"
+      - "83:83"
+    volumes:
+      - ./docker/front/default.conf:/usr/local/nginx/conf.d/default.conf
+      - ./docker/front/nginx.conf:/usr/local/nginx/conf/nginx.conf      
+      - ./docker/front/modsecurity.conf:/usr/local/nginx/conf/modsecurity.conf          
+      - ./docker/front/modsec_includes.conf:/usr/local/nginx/conf/modsec_includes.conf  
+      - ./docker/front/crs-setup.conf:/usr/local/nginx/conf/rules/crs-setup.conf        
+      - ./docker/fail2ban/jail.conf:/etc/fail2ban/jail.conf                             
+      - ./docker/fail2ban/jail.conf:/etc/fail2ban/jail.local                            
+      - ./docker/fail2ban/filter.d/:/etc/fail2ban/filter.d/                             
+      - ./log/logs/:/usr/local/nginx/logs/
+      - ./log/log/:/var/log/      
+    depends_on:
+      - frontend
+    networks:
+      - mung_net
+  frontend:
+    build:
+      context: ./www/front
+      dockerfile: Dockerfile
+    container_name: frontend
+    restart: unless-stopped
+    depends_on: 
+      - mysql_serv
+      - backend
+    volumes:
+      - ./www/front:/app
+      - /app/node_modules
+    #ports:
+    #  - "3000:3000"
+    expose:
+      - "5000"
+    networks:
+      - mung_net      
+  backend:
+    build:
+      context: ./www/back
+      dockerfile: Dockerfile
+    container_name: backend
+    restart: unless-stopped
+    depends_on: 
+      - mysql_serv
+    volumes:
+      - ./www/back:/app
+      - /app/node_modules
+    #ports:
+    #  - "5000:5000"
+    expose:
+      - "5000"      
+    networks:
+      - mung_net      
+  mysql_serv:
+    image: mysql:8.0.32
+    container_name: mysql_cname
+    restart: unless-stopped
+    expose:
+      - "3306"
+    volumes:
+      - ./docker/mysql/conf.d:/etc/mysql/conf.d         
+      - ./docker/mysql:/docker-entrypoint-initdb.d        
+      - ./mysql_data:/var/lib/mysql
+    environment: 
+      MYSQL_DATABASE: testdb
+      MYSQL_ROOT_PASSWORD: pass1234
+      MYSQL_PASSWORD: pass1234
+      MYSQL_USER: testuser
+      SERVICE_TAGS: mysqlservicetags
+      SERVICE_NAME: mysqlservicename
+      TZ: Asia/Seoul
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --host_cache_size=0
+    networks:
+      - mung_net
+  phpmyadmin_serv:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin_cname
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: unless-stopped
+    #ports:
+    #  - "8080:80"    
+    expose:
+      - "80"
+    depends_on: 
+      - mysql_serv
+    networks:
+      - mung_net
+  adminer:
+    image: adminer:latest
+    container_name: adminer_cname
+    restart: unless-stopped
+    #ports:
+    #  - 8000:8080
+    expose:
+      - "8000"    
+    depends_on:
+      - mysql_serv
+    environment:
+      ADMINER_DEFAULT_SERVER: mysql_serv
+    networks:
+      - mung_net

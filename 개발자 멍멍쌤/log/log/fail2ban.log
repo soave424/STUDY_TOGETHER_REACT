@@ -1,0 +1,74 @@
+2023-04-20 19:20:07,593 fail2ban.server         [10]: INFO    --------------------------------------------------
+2023-04-20 19:20:07,594 fail2ban.server         [10]: INFO    Starting Fail2ban v0.11.2
+2023-04-20 19:20:07,595 fail2ban.server         [10]: INFO    Daemon started
+2023-04-20 19:20:07,596 fail2ban.observer       [10]: INFO    Observer start...
+2023-04-20 19:20:07,605 fail2ban.database       [10]: INFO    Connected to fail2ban persistent database '/var/lib/fail2ban/fail2ban.sqlite3'
+2023-04-20 19:20:07,609 fail2ban.database       [10]: WARNING New database created. Version '4'
+2023-04-20 19:20:07,611 fail2ban.transmitter    [10]: ERROR   Jail 'nginx-http-auth' skipped, because of wrong configuration: Unable to read the filter 'nginx-http-auth'
+2023-04-20 19:20:07,611 fail2ban.transmitter    [10]: ERROR   Jail 'nginx-limit-req' skipped, because of wrong configuration: Unable to read the filter 'nginx-limit-req'
+2023-04-20 19:20:07,612 fail2ban.transmitter    [10]: ERROR   Jail 'nginx-botsearch' skipped, because of wrong configuration: Unable to read the filter 'nginx-botsearch'
+2023-04-20 19:20:07,613 fail2ban.jail           [10]: INFO    Creating new jail 'nginx-req-limit'
+2023-04-20 19:20:07,616 fail2ban.jail           [10]: INFO    Jail 'nginx-req-limit' uses poller {}
+2023-04-20 19:20:07,617 fail2ban.jail           [10]: INFO    Initiated 'polling' backend
+2023-04-20 19:20:07,619 fail2ban.filter         [10]: INFO      maxRetry: 10
+2023-04-20 19:20:07,620 fail2ban.filter         [10]: INFO      findtime: 600
+2023-04-20 19:20:07,620 fail2ban.actions        [10]: INFO      banTime: 7200
+2023-04-20 19:20:07,621 fail2ban.filter         [10]: INFO      encoding: UTF-8
+2023-04-20 19:20:07,623 fail2ban.filter         [10]: INFO    Added logfile: '/usr/local/nginx/logs/error.log' (pos = 0, hash = da39a3ee5e6b4b0d3255bfef95601890afd80709)
+2023-04-20 19:20:07,624 fail2ban.jail           [10]: INFO    Creating new jail 'nginx-auth'
+2023-04-20 19:20:07,625 fail2ban.jail           [10]: INFO    Jail 'nginx-auth' uses poller {}
+2023-04-20 19:20:07,626 fail2ban.jail           [10]: INFO    Initiated 'polling' backend
+2023-04-20 19:20:07,627 fail2ban.filter         [10]: INFO      maxRetry: 5
+2023-04-20 19:20:07,628 fail2ban.filter         [10]: INFO      findtime: 600
+2023-04-20 19:20:07,629 fail2ban.actions        [10]: INFO      banTime: 600
+2023-04-20 19:20:07,629 fail2ban.filter         [10]: INFO      encoding: UTF-8
+2023-04-20 19:20:07,631 fail2ban.filter         [10]: INFO    Added logfile: '/usr/local/nginx/logs/error.log' (pos = 0, hash = da39a3ee5e6b4b0d3255bfef95601890afd80709)
+2023-04-20 19:20:07,632 fail2ban.jail           [10]: INFO    Creating new jail 'nginx-login'
+2023-04-20 19:20:07,633 fail2ban.jail           [10]: INFO    Jail 'nginx-login' uses poller {}
+2023-04-20 19:20:07,634 fail2ban.jail           [10]: INFO    Initiated 'polling' backend
+2023-04-20 19:20:07,635 fail2ban.filter         [10]: INFO      maxRetry: 10
+2023-04-20 19:20:07,636 fail2ban.filter         [10]: INFO      findtime: 60
+2023-04-20 19:20:07,637 fail2ban.actions        [10]: INFO      banTime: 3600
+2023-04-20 19:20:07,637 fail2ban.filter         [10]: INFO      encoding: UTF-8
+2023-04-20 19:20:07,640 fail2ban.filter         [10]: INFO    Added logfile: '/usr/local/nginx/logs/access.log' (pos = 0, hash = da39a3ee5e6b4b0d3255bfef95601890afd80709)
+2023-04-20 19:20:07,640 fail2ban.jail           [10]: INFO    Creating new jail 'nginx-proxy'
+2023-04-20 19:20:07,642 fail2ban.jail           [10]: INFO    Jail 'nginx-proxy' uses poller {}
+2023-04-20 19:20:07,642 fail2ban.jail           [10]: INFO    Initiated 'polling' backend
+2023-04-20 19:20:07,644 fail2ban.filter         [10]: INFO      maxRetry: 0
+2023-04-20 19:20:07,644 fail2ban.filter         [10]: INFO      findtime: 600
+2023-04-20 19:20:07,645 fail2ban.actions        [10]: INFO      banTime: 600
+2023-04-20 19:20:07,645 fail2ban.filter         [10]: INFO      encoding: UTF-8
+2023-04-20 19:20:07,647 fail2ban.filter         [10]: INFO    Added logfile: '/usr/local/nginx/logs/access.log' (pos = 0, hash = da39a3ee5e6b4b0d3255bfef95601890afd80709)
+2023-04-20 19:20:07,648 fail2ban.jail           [10]: INFO    Creating new jail 'nginx-dos'
+2023-04-20 19:20:07,649 fail2ban.jail           [10]: INFO    Jail 'nginx-dos' uses poller {}
+2023-04-20 19:20:07,650 fail2ban.jail           [10]: INFO    Initiated 'polling' backend
+2023-04-20 19:20:07,650 fail2ban.filter         [10]: INFO      maxRetry: 100
+2023-04-20 19:20:07,651 fail2ban.filter         [10]: INFO      findtime: 60
+2023-04-20 19:20:07,652 fail2ban.actions        [10]: INFO      banTime: 3600
+2023-04-20 19:20:07,653 fail2ban.filter         [10]: INFO      encoding: UTF-8
+2023-04-20 19:20:07,656 fail2ban.filter         [10]: INFO    Added logfile: '/usr/local/nginx/logs/access.log' (pos = 0, hash = da39a3ee5e6b4b0d3255bfef95601890afd80709)
+2023-04-20 19:20:07,681 fail2ban.jail           [10]: INFO    Jail 'nginx-req-limit' started
+2023-04-20 19:20:07,682 fail2ban.jail           [10]: INFO    Jail 'nginx-auth' started
+2023-04-20 19:20:07,684 fail2ban.jail           [10]: INFO    Jail 'nginx-login' started
+2023-04-20 19:20:07,686 fail2ban.jail           [10]: INFO    Jail 'nginx-proxy' started
+2023-04-20 19:20:07,687 fail2ban.jail           [10]: INFO    Jail 'nginx-dos' started
+2023-04-20 19:20:25,303 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:20:24
+2023-04-20 19:20:25,306 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:20:25
+2023-04-20 19:20:25,966 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:20:25
+2023-04-20 19:20:26,420 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:20:26
+2023-04-20 19:20:26,421 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:20:26
+2023-04-20 19:21:45,681 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:21:45
+2023-04-20 19:21:46,582 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:21:46
+2023-04-20 19:21:46,583 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:21:46
+2023-04-20 19:21:46,585 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:21:46
+2023-04-20 19:21:47,791 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:21:47
+2023-04-20 19:22:20,516 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:22:19
+2023-04-20 19:22:20,525 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:22:19
+2023-04-20 19:22:20,526 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:22:19
+2023-04-20 19:22:20,527 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:22:19
+2023-04-20 19:22:20,528 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:22:20
+2023-04-20 19:23:26,920 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:23:25
+2023-04-20 19:23:26,931 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:23:25
+2023-04-20 19:23:27,253 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:23:27
+2023-04-20 19:23:27,254 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:23:27
+2023-04-20 19:23:27,474 fail2ban.filter         [10]: INFO    [nginx-dos] Found 172.24.0.1 - 2023-04-20 19:23:27
