@@ -1,17 +1,13 @@
-# 🐾자 멍멍쌤 공부 내용
+<4주차>
+-docker
+  -fail2ban : 무차별 공격 방어 툴
+  -front : nginx(proxy) + modsecurity(웹 방화벽)
+  -mysql : mysql컨테이너 생성 시 초기값
+-log
+  -log : fail2ban, modsecurity 로그
+  -logs : nginx의 access.log, error.log 로그
+-www
+  -back : node.js 백앤드
+  -front : react 프론트앤드
 
-### 2주차 강의 #1.1 ~ #3.3 + 개인 결과물 초안
-
-### 3주차 강의 #3.4 ~ #5.1 + 개인 결과물 발전
-
-### 4주차 강의 #6.0 ~ #7.10 + 개인 결과물 발전
-
-### 5주차 강의 #8.0 ~ #9.2 + 개인 결과물 발전
-
-### 6주차 강의 #10.0 ~ #11.3 + 개인 결과물 발전
-
-### 7주차 강의 #12.0 ~ #12.5 + 개인 결과물 발전
-
-### 8주차 강의 #13.0 ~ 14.4 + 개인 결과물 완성 및 발표
-
-### 9주차 개인 결과물 완성시켜와서 발표하기
+* docker-compose.yml : front_nginx + frontend + backend + mysql_serv + phpmyadmin_serv + adminer 생성
